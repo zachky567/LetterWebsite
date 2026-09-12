@@ -1,0 +1,289 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Letter 💌</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Georgia, serif;
+
+            background: linear-gradient(135deg, #ffd6e7, #d8e8ff);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+        }
+
+        /* Main box */
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+
+            background: rgba(255, 255, 255, 0.9);
+
+            padding: 35px;
+
+            border-radius: 25px;
+
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+
+            text-align: center;
+        }
+
+        h1 {
+            color: #8d4f68;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        /* Form */
+
+        label {
+            display: block;
+            text-align: left;
+
+            color: #704052;
+
+            font-weight: bold;
+
+            margin-top: 15px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+
+            padding: 13px;
+
+            margin-top: 7px;
+
+            border: 2px solid #f0b8ca;
+
+            border-radius: 12px;
+
+            font-family: Arial, sans-serif;
+
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #c86b8b;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Button */
+
+        button {
+            margin-top: 20px;
+
+            padding: 14px 30px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #c86b8b;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #a84f70;
+
+            transform: scale(1.05);
+        }
+
+        /* Letter */
+
+        .letter {
+            margin-top: 35px;
+
+            background: #fffdf5;
+
+            padding: 40px;
+
+            text-align: left;
+
+            border-radius: 5px;
+
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+            position: relative;
+
+            animation: openLetter 1s ease;
+        }
+
+        @keyframes openLetter {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .letter::before {
+            content: "💌";
+
+            position: absolute;
+
+            top: -25px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-size: 45px;
+        }
+
+        .letter h2 {
+            text-align: center;
+
+            color: #8d4f68;
+
+            margin-bottom: 30px;
+        }
+
+        .letter p {
+            line-height: 1.8;
+
+            color: #444;
+        }
+
+        .signature {
+            margin-top: 30px;
+
+            font-style: italic;
+
+            color: #8d4f68;
+        }
+
+        .heart {
+            text-align: center;
+
+            font-size: 25px;
+
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>💌 My Letter Maker</h1>
+
+    <p class="subtitle">
+        Write something special...
+    </p>
+
+
+    <form method="POST">
+
+        <label>To:</label>
+
+        <input
+            type="text"
+            name="recipient"
+            placeholder="Enter the recipient's name"
+            required
+        >
+
+
+        <label>Subject:</label>
+
+        <input
+            type="text"
+            name="subject"
+            placeholder="Enter your subject"
+            required
+        >
+
+
+        <label>Your Message:</label>
+
+        <textarea
+            name="message"
+            placeholder="Write your letter here..."
+            required
+        ></textarea>
+
+
+        <button type="submit">
+            ✨ Create My Letter
+        </button>
+
+    </form>
+
+
+    {% if recipient %}
+
+    <div class="letter">
+
+        <h2>{{ subject }}</h2>
+
+        <p>
+            Dear <strong>{{ recipient }}</strong>,
+        </p>
+
+        <p>
+            {{ message }}
+        </p>
+
+        <p class="signature">
+            With sincerity,<br>
+            <strong>Your Name</strong>
+        </p>
+
+        <div class="heart">
+            ♡ ✨ ♡
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>
+```
+
+
