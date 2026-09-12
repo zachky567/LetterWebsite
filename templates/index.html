@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>A Letter For You 💌</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #ffd6e7,
+                #e6d6ff,
+                #d6ecff
+            );
+
+            overflow-x: hidden;
+        }
+
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+
+        h1 {
+            color: #7b3f61;
+        }
+
+
+        .click-text {
+            color: #555;
+            font-size: 18px;
+
+            animation: floatText 2s infinite;
+        }
+
+
+        @keyframes floatText {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ENVELOPE */
+
+        .envelope {
+            width: 320px;
+            height: 210px;
+
+            background: #f7a8c0;
+
+            margin: 40px auto;
+
+            position: relative;
+
+            cursor: pointer;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.2);
+
+            transition: transform 0.5s;
+        }
+
+
+        .envelope:hover {
+            transform: scale(1.03);
+        }
+
+
+        /* Envelope flap */
+
+        .flap {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left: 160px solid transparent;
+            border-right: 160px solid transparent;
+            border-top: 110px solid #e889a8;
+
+            transform-origin: top;
+
+            transition: transform 1s;
+
+            z-index: 3;
+        }
+
+
+        /* Heart */
+
+        .heart {
+            position: absolute;
+
+            top: 85px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-size: 45px;
+
+            z-index: 4;
+        }
+
+
+        /* LETTER */
+
+        .letter {
+            width: 320px;
+
+            background: #fffdf7;
+
+            padding: 35px;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.2);
+
+            position: absolute;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%)
+                translateY(100px);
+
+            opacity: 0;
+
+            transition:
+                transform 1.5s ease,
+                opacity 1s ease;
+
+            z-index: 2;
+
+            text-align: left;
+        }
+
+
+        .letter h2 {
+            text-align: center;
+
+            color: #9b4d6b;
+        }
+
+
+        .letter p {
+            line-height: 1.7;
+
+            color: #444;
+        }
+
+
+        .signature {
+            margin-top: 30px;
+
+            font-style: italic;
+
+            color: #9b4d6b;
+        }
+
+
+        /* OPEN ENVELOPE */
+
+        .open .flap {
+            transform: rotateX(180deg);
+
+            z-index: 1;
+        }
+
+
+        .open .heart {
+            opacity: 0;
+        }
+
+
+        .open .letter {
+
+            transform:
+                translateX(-50%)
+                translateY(-230px);
+
+            opacity: 1;
+
+            z-index: 5;
+        }
+
+
+        /* OPEN BUTTON */
+
+        button {
+            padding: 12px 25px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background: #c9688a;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 10px rgba(0,0,0,0.15);
+
+            transition: 0.3s;
+        }
+
+
+        button:hover {
+
+            background: #a94d6d;
+
+            transform: scale(1.05);
+
+        }
+
+
+        .open-button {
+            margin-top: 10px;
+        }
+
+
+        .hidden {
+            display: none;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>💌 A Special Letter For You</h1>
+
+    <p class="click-text">
+        Someone has something to tell you...
+    </p>
+
+
+    <button
+        class="open-button"
+        onclick="openLetter()">
+
+        Open the Letter 💌
+
+    </button>
+
+
+    <div
+        class="envelope"
+        id="envelope"
+        onclick="openLetter()">
+
+
+        <div class="flap"></div>
+
+
+        <div class="heart">
+            💗
+        </div>
+
+
+        <div class="letter">
+
+            <!-- CHANGE THE MESSAGE BELOW -->
+
+            <h2>Dear Cassamdra Olos Pilota,</h2>
+
+
+            <p>
+
+                I just wanted to say that thankyou that i,ve met you
+                i didnt expect that our conversations or talking will
+                last this long hahaha.
+
+            </p>
+
+
+            <p>
+
+                i just want to make this wara ganahan rako kay gilaay ko hahaha
+                btaw padayon ra araa ha ja kaon saktong oras intawn kay ag ulcer
+                nato araa atimana.
+
+            </p>
+
+
+            <p>
+
+                I hope this little letter can make
+                you smile today. No matter where we
+                are, I want you to know that you are
+                appreciated.
+
+            </p>
+
+
+            <p class="signature">
+
+                From,<br>
+
+                <strong> Zachky <: ❤️</strong>
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function openLetter() {
+
+        document
+            .getElementById("envelope")
+            .classList
+            .add("open");
+
+
+        document
+            .querySelector(".open-button")
+            .classList
+            .add("hidden");
+
+    }
+
+</script>
+
+</body>
+
+</html>
